@@ -21,7 +21,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/brands" element={<BrandsPage />} />
-          <Route path="/brands/:name/:id" element={<BrandPage />} />
+          <Route path="/brands/:id" element={<BrandPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/customers" element={<CustomersPage />} />
 
