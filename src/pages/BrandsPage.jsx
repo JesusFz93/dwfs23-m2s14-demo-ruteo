@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+// import brandsJSON from "../data/brands.json";
 
 // const marcas = [
 //   {
@@ -23,6 +25,12 @@ const BrandsPage = () => {
     const resp = await axios.get("https://dwfs-api.onrender.com/api/v1/brands");
     console.log(resp.data.data);
     setBrands(resp.data.data);
+    // setBrands(brandsJSON);
+
+    // const resp = await fetch("https://dwfs-api.onrender.com/api/v1/brands");
+    // const json = await resp.json();
+    // console.log(json.data);
+    // setBrands(json.data);
   };
 
   return (
@@ -41,6 +49,8 @@ const BrandsPage = () => {
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Desde</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Opciones</th>
               </tr>
             </thead>
             <tbody>
@@ -55,7 +65,16 @@ const BrandsPage = () => {
                         className="img-fluid"
                         src={brand.imagen}
                         alt={brand.nombre}
+                        width={120}
                       />
+                    </td>
+                    <td>
+                      <NavLink
+                        className="btn btn-secondary"
+                        to={`/brands/${brand.id}`}
+                      >
+                        Ver mas...
+                      </NavLink>
                     </td>
                   </tr>
                 );
